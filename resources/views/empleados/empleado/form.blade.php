@@ -1,7 +1,9 @@
 <div class="form-group row">
   <label for="DNI_empleado" class="col-lg-2 control-label offset-md-1 requerido">Identidad</label>
   <div class="col-sm-8">
-    <input type="text" name="DNI_empleado" id="DNI_empleado" maxlength="13" placeholder="Escriba su número identidad, sin guiones." class="form-control" value="{{old('DNI_empleado', $empleados->DNI_empleado ?? '')}}" required/>
+    <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+    type = "number"
+    maxlength = "13" name="DNI_empleado" id="DNI_empleado" maxlength="13" placeholder="Escriba su número identidad, sin guiones." class="form-control" value="{{old('DNI_empleado', $empleados->DNI_empleado ?? '')}}" required/>
   </div>
 </div>
 
@@ -36,6 +38,15 @@
 <?php $fecha_actual = date("d-m-Y");?>
 
 <div class="form-group row">
+  <label for="fecha_ingreso" class="col-lg-2 control-label offset-md-1 requerido">Fecha de Ingreso</label>
+  <div class="col-sm-8">
+    <input type="date" name="fecha_ingreso" id="fecha_ingreso" class="form-control" 
+    value="{{old('fecha_ingreso', $empleados->fecha_ingreso ?? '')}}" required
+    max="<?php echo date('Y-m-d',strtotime($fecha_actual));?>"/>
+  </div>
+</div>
+
+<div class="form-group row">
     <label for="fecha_de_nacimiento" class="col-lg-2 control-label offset-md-1 requerido">Fecha Nacimiento</label>
     <div class="col-sm-8">
       <input type="date" name="fecha_de_nacimiento" id="fecha_de_nacimiento" class="form-control" 
@@ -67,14 +78,18 @@
 <div class="form-group row">
     <label for="telefono" class="col-lg-2 control-label offset-md-1 requerido">Teléfono de Empleado</label>
     <div class="col-sm-8">
-      <input type="number" name="telefono" maxlength="8" placeholder="Escriba un número de telefono." id="telefono" class="form-control" value="{{old('telefono', $empleados->telefono ?? '')}}" required/>
+      <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+      type = "number"
+      maxlength = "8" name="telefono" maxlength="8" placeholder="Escriba un número de telefono." id="telefono" class="form-control" value="{{old('telefono', $empleados->telefono ?? '')}}" required/>
     </div>
 </div>
 
 <div class="form-group row">
     <label for="contacto_de_emergencia" class="col-lg-2 control-label offset-md-1 requerido">Contacto de emergencia</label>
     <div class="col-sm-8">
-      <input type="number" name="contacto_de_emergencia" maxlength="8" placeholder="Escriba un número de emergencia." id="contacto_de_emergencia" class="form-control" value="{{old('contacto_de_emergencia', $empleados->contacto_de_emergencia ?? '')}}" required/>
+      <input oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+      type = "number"
+      maxlength = "8" name="contacto_de_emergencia" maxlength="8" placeholder="Escriba un número de emergencia." id="contacto_de_emergencia" class="form-control" value="{{old('contacto_de_emergencia', $empleados->contacto_de_emergencia ?? '')}}" required/>
     </div>
 </div>
 
