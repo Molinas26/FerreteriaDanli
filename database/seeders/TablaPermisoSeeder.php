@@ -50,43 +50,43 @@ class TablaPermisoSeeder extends Seeder
 
         DB::table('permiso')->insert([
             'nombre' => 'Editar Empleado',
-            'slug' => 'crear-empleado',
+            'slug' => 'editar-empleado',
         ]);
 
         DB::table('permiso')->insert([
             'nombre' => 'Editar Producto',
-            'slug' => 'crear-producto',
+            'slug' => 'editar-producto',
         ]);
 
         DB::table('permiso')->insert([
             'nombre' => 'Editar Cliente',
-            'slug' => 'crear-cliente',
+            'slug' => 'editar-cliente',
         ]);
 
         DB::table('permiso')->insert([
             'nombre' => 'Editar Proveedores',
-            'slug' => 'crear-proveedores',
+            'slug' => 'editar-proveedores',
         ]);
 
 
         DB::table('permiso')->insert([
             'nombre' => 'Listar Empleado',
-            'slug' => 'crear-empleado',
+            'slug' => 'listar-empleado',
         ]);
 
         DB::table('permiso')->insert([
             'nombre' => 'Listar Producto',
-            'slug' => 'crear-producto',
+            'slug' => 'listar-productos',
         ]);
 
         DB::table('permiso')->insert([
             'nombre' => 'Listar Cliente',
-            'slug' => 'crear-cliente',
+            'slug' => 'listar-cliente',
         ]);
 
         DB::table('permiso')->insert([
             'nombre' => 'Listar Proveedores',
-            'slug' => 'crear-proveedores',
+            'slug' => 'listar-proveedores',
         ]);
 
         DB::table('permiso')->insert([
@@ -377,15 +377,11 @@ class TablaPermisoSeeder extends Seeder
 
 
 
-        
-        DB::table('permiso_rol')->insert([
-            'rol_id' => '1',
-            'permiso_id' => '1',
-        ]);
-
-        DB::table('permiso_rol')->insert([
-            'rol_id' => '1',
-            'permiso_id' => '2',
-        ]);
+        for($i=1; $i<=68; $i++){
+            DB::table('permiso_rol')->insert([
+                'rol_id' => '1',
+                'permiso_id' => $i,
+            ]);
+        }
     }
 }
